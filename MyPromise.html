@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>My Promise</h1>
+	</body>
+	<script src="MyPromise.js"></script>
+	<script>
+		
+		const p1 = new MyPromise((resove, reject) => {
+			setTimeout(() => {
+				resove(123);
+			}, 1000);
+		});
+		
+		const p2 = new MyPromise((resove, reject) => {
+			setTimeout(() => {
+				resove(456);
+			}, 2000);
+		});
+		MyPromise.all([p1,p2]).then(ret => {
+			console.log(ret);
+		}, err => {
+			console.log(err);
+		});
+	</script>
+</html>
